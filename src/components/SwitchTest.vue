@@ -1,0 +1,84 @@
+
+<template>
+  <div>
+  <h1>Switch 组件示例 </h1>
+  <div class="demo">
+    <h2>常规用法</h2>
+    <div class="demo-actions">
+      <Switch1/>
+    </div>
+    <div class="demo-actions">
+      <Button >查看代码</Button>
+    </div>
+    <div class="demo-code">
+      <pre><v-md-preview :text="block"></v-md-preview></pre>
+    </div>
+  </div>
+  <div class="demo">
+    <h2>支持禁用 </h2>
+    <div class="demo-actions">
+      <Switch2/>
+    </div>
+    <div class="demo-actions">
+      <Button>查看代码</Button>
+    </div>
+    <div class="demo-code">
+      <pre><v-md-preview :text="blocks"></v-md-preview></pre>
+    </div>
+  </div>
+</div>
+<div>
+  <p>
+    下一节：<router-link to="/doc/button"><strong>Button 组件</strong> </router-link>
+  </p>
+</div>
+</template>
+<script lang ="ts"> 
+import Switch from '../lib/Switch.vue';
+import Switch1 from './Switch1.vue';
+import Switch2 from './Switch2.vue';
+import Button from '../lib/Button.vue';
+import switch1 from '../markdown/switch1.md?raw';
+import switch2 from '../markdown/switch2.md?raw';
+
+import {ref} from 'vue';
+export default {
+  components: {Switch,Button},
+  setup(){
+    const bool = ref(false)
+
+    const block = ref(switch1)
+    const blocks = ref(switch2)
+    return{bool,Switch1,Switch2,block,blocks}
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+$border-color: #d9d9d9;
+.demo {
+  border: 1px solid $border-color;
+  margin: 16px 0 32px;
+  >h2 {
+    font-size: 20px;
+    padding: 8px 16px;
+    border-bottom: 1px solid $border-color;
+  }
+  &-component {
+    padding: 16px;
+  }
+  &-actions {
+    padding: 8px 16px;
+    border-top: 1px dashed $border-color;
+  }
+  &-code {
+    padding: 8px 16px;
+    border-top: 1px dashed $border-color;
+    >pre {
+      line-height: 1.1;
+      font-family: Consolas, 'Courier New', Courier, monospace;
+      margin: 0;
+    }
+  }
+}
+</style>

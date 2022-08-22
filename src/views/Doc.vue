@@ -1,24 +1,31 @@
 <template>
    <div class="common-layout">
-    <el-container>
-      <el-header width="100%">
-        <common-header/>
-      </el-header>
+      <common-header/>
       <el-container>
-        <el-aside width="200px"><Aside/></el-aside>
-        <el-main>Main</el-main>
+        <el-aside width="120px " v-if="asideVisible">
+          <Aside />
+        </el-aside>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
-    </el-container>
   </div>
 </template>
 <script lang="ts">
-import CommonHeader from '../components/CommonHeader.vue';
-import Aside from '../components/Aside.vue';
+import CommonHeader from './CommonHeader.vue';
+import Aside from './Aside.vue';
+import {inject,Ref} from 'vue'
 export default {
   components: { CommonHeader,Aside },
+  setup() {
+    const asideVisible = inject<Ref<boolean>>('asideVisible')
     
+    return{asideVisible}
+  },  
 }
 </script>
 <style lang="scss" scoped>
-    
+    .el-aside{
+      text-align: center;
+    }
 </style>
