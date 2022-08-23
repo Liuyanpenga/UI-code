@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.6",

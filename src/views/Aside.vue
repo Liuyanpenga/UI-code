@@ -37,7 +37,6 @@ export default defineComponent({});
 
 .aside{
   position: absolute;
-  height:100vh; 
   width: 120px;
   background: #fff;
   box-shadow: 5px 0 5px rgb(51 51 51 / 10%);

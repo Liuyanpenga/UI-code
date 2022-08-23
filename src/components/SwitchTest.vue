@@ -8,9 +8,9 @@
       <Switch1/>
     </div>
     <div class="demo-actions">
-      <Button >查看代码</Button>
+      <Button @click="look">查看代码</Button>
     </div>
-    <div class="demo-code">
+    <div class="demo-code" v-if="$store.state.codeVisible">
       <pre><v-md-preview :text="block"></v-md-preview></pre>
     </div>
   </div>
@@ -20,9 +20,9 @@
       <Switch2/>
     </div>
     <div class="demo-actions">
-      <Button>查看代码</Button>
+      <Button @click="look1">查看代码</Button>
     </div>
-    <div class="demo-code">
+    <div class="demo-code" v-if="$store.state.visible">
       <pre><v-md-preview :text="blocks"></v-md-preview></pre>
     </div>
   </div>
@@ -34,51 +34,33 @@
 </div>
 </template>
 <script lang ="ts"> 
+import '../assets/scss/code.scss'
 import Switch from '../lib/Switch.vue';
 import Switch1 from './Switch1.vue';
 import Switch2 from './Switch2.vue';
 import Button from '../lib/Button.vue';
 import switch1 from '../markdown/switch1.md?raw';
 import switch2 from '../markdown/switch2.md?raw';
+import { useStore } from 'vuex';
+
 
 import {ref} from 'vue';
 export default {
   components: {Switch,Button},
   setup(){
+    const store = useStore()
+
     const bool = ref(false)
 
     const block = ref(switch1)
     const blocks = ref(switch2)
-    return{bool,Switch1,Switch2,block,blocks}
+    const look = () => {
+      store.commit('updatedCodeVisible')
+    };
+    const look1 = () => {
+      store.commit('updatedVisible')
+    };
+    return{bool,Switch1,Switch2,block,blocks,look,look1}
   }
 }
 </script>
-
-<style lang="scss" scoped>
-$border-color: #d9d9d9;
-.demo {
-  border: 1px solid $border-color;
-  margin: 16px 0 32px;
-  >h2 {
-    font-size: 20px;
-    padding: 8px 16px;
-    border-bottom: 1px solid $border-color;
-  }
-  &-component {
-    padding: 16px;
-  }
-  &-actions {
-    padding: 8px 16px;
-    border-top: 1px dashed $border-color;
-  }
-  &-code {
-    padding: 8px 16px;
-    border-top: 1px dashed $border-color;
-    >pre {
-      line-height: 1.1;
-      font-family: Consolas, 'Courier New', Courier, monospace;
-      margin: 0;
-    }
-  }
-}
-</style>

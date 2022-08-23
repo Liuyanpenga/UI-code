@@ -16,9 +16,7 @@
       </svg>
       </router-link>
     </div>
-    
-    <div class="menu">菜单</div>
-
+    <div class="menu"><router-link to="/doc/introduce">文档</router-link></div>
   </div>
 </template>
 <script lang="ts">

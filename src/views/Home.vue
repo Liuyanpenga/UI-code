@@ -18,7 +18,7 @@
         </svg>
         <div class="introduction">
         <h3>基于Vue3</h3>
-        <p>运用Vue3中的Compositons API</p>
+        <p>运用Vue3中的Composition API</p>
         </div>
       </li>
       <li>
