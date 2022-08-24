@@ -26,20 +26,22 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({});
+<script>
+export default {
+  name:'Aside',
+}
 </script>
-
-
-<style lang="scss" scoped>
-
+<style lang="scss">
 .aside{
+  z-index: 1000;
   position: absolute;
-  width: 120px;
+  width: 200px;
+  height: 100%;
   background: #fff;
   box-shadow: 5px 0 5px rgb(51 51 51 / 10%);
+  ul{
+    margin-top: 40px;
+  }
   &>ul>li {
     >.router-link-active{
     color: #409eff;
@@ -49,8 +51,9 @@ export default defineComponent({});
   list-style: none;
     margin-top: 16px;
   a{
-  text-decoration: none;
-  display: block;
+    font-weight: 500;
+    text-decoration: none;
+    display: block;
    &:hover{
     color: #6cb4ff;
   }

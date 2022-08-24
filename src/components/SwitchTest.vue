@@ -1,7 +1,7 @@
 
 <template>
   <div>
-  <h1>Switch 组件示例 </h1>
+  <h1>Switch 开关 </h1>
   <div class="demo">
     <h2>常规用法</h2>
     <div class="demo-actions">

@@ -45,10 +45,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
 import CommonHeader from "./CommonHeader.vue";
 
-export default defineComponent({
+export default ({
   name: "Home",
   components: { CommonHeader },
 });

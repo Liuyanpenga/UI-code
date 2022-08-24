@@ -135,6 +135,7 @@ $grey: grey;
         border-color: darken($red, 10%);
       }
     }
+
     &.Qt-level-warning {
       background: $warning;
       border-color: $warning;
@@ -146,45 +147,7 @@ $grey: grey;
       }
     }
   }
-  &.Qt-theme-link {
-    &.Qt-level-warning {
-      color: $warning;
-      &:hover,
-      &:focus {
-        color: darken($warning, 10%);
-      }
-    }
-    &.Qt-level-danger {
-      color: $red;
-      &:hover,
-      &:focus {
-        color: darken($red, 10%);
-      }
-    }
-  }
-  &.Qt-theme-text {
-    &.Qt-level-main {
-      color: $blue;
-      &:hover,
-      &:focus {
-        color: darken($blue, 10%);
-      }
-    }
-     &.Qt-level-warning {
-      color: $warning;
-      &:hover,
-      &:focus {
-        color: darken($warning, 10%);
-      }
-    }
-    &.Qt-level-danger {
-      color: $red;
-      &:hover,
-      &:focus {
-        color: darken($red, 10%);
-      }
-    }
-  }
+
   &.Qt-theme-button {
     &[disabled] {
       cursor: not-allowed;
@@ -194,13 +157,7 @@ $grey: grey;
       }
     }
   }
-  &.Qt-theme-link,
-  &.Qt-theme-text {
-    &[disabled] {
-      cursor: not-allowed;
-      color: $grey;
-    }
-  }
+
   > .Qt-loadingIndicator {
     width: 14px;
     height: 14px;
@@ -220,5 +177,15 @@ $grey: grey;
   100% {
     transform: rotate(360deg);
   }
+}
+@media (max-width:500px) {
+  .Qt-button {
+    &.Qt-theme-button {
+    &.Qt-level-danger {
+      margin-left: 0px;
+      margin-top: 8px;
+    }
+    }
+}
 }
 </style>

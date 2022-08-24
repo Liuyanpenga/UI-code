@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1>button示例</h1>
+  <h1>Button 按钮</h1>
   <div class="demo">
     <h2>常规用法</h2>
     <div class="demo-actions">
@@ -11,7 +11,7 @@
     <div class="demo-actions">
       <Button @click="look1">查看代码</Button>
     </div>
-    <div class="demo-code" v-show="$store.state.codeVisible1">
+    <div class="demo-code" v-if="$store.state.codeVisible1">
       <pre><v-md-preview :text="block1"></v-md-preview></pre>
     </div>
   </div>
@@ -26,7 +26,7 @@
     <div class="demo-actions">
       <Button @click="look2">查看代码</Button>
     </div>
-    <div class="demo-code" v-show="$store.state.codeVisible2">
+    <div class="demo-code" v-if="$store.state.codeVisible2">
       <pre><v-md-preview :text="block2"></v-md-preview></pre>
     </div>
   </div>
@@ -42,7 +42,7 @@
     <div class="demo-actions">
       <Button @click="look3">查看代码</Button>
     </div>
-    <div class="demo-code" v-show="$store.state.codeVisible3">
+    <div class="demo-code" v-if="$store.state.codeVisible3">
       <pre><v-md-preview :text="block3"></v-md-preview></pre>
     </div>
   </div>
@@ -56,7 +56,7 @@
     <div class="demo-actions">
       <Button @click="look4">查看代码</Button>
     </div>
-    <div class="demo-code" v-show="$store.state.codeVisible4">
+    <div class="demo-code" v-if="$store.state.codeVisible4">
       <pre><v-md-preview :text="block4"></v-md-preview></pre>
     </div>
   </div>
@@ -69,7 +69,7 @@
     <div class="demo-actions">
       <Button @click="look5">查看代码</Button>
     </div>
-    <div class="demo-code" v-show="$store.state.codeVisible5">
+    <div class="demo-code" v-if="$store.state.codeVisible5">
       <pre><v-md-preview :text="block5"></v-md-preview></pre>
     </div>
   </div>
@@ -123,19 +123,5 @@ export default {
 };
 </script>
 <style lang="scss">
-$border-color: #d9d9d9;
-.demo-actions {
-  padding: 8px 16px;
-  border-top: 1px dashed $border-color;
 
-  &-code {
-    padding: 8px 16px;
-    border-top: 1px dashed $border-color;
-    > pre {
-      line-height: 1.1;
-      font-family: Consolas, "Courier New", Courier, monospace;
-      margin: 0;
-    }
-  }
-}
 </style>

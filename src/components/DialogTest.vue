@@ -1,5 +1,5 @@
 <template>
-    <h1>dialog 示例</h1>
+    <h1>dialog 对话框</h1>
     <div class="demo">
       <h2>常规用法</h2>
       <div class="demo-actions">

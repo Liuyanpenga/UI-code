@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1>Tabs 示例1</h1>
+  <h1>Tabs 标签页</h1>
   <div class="demo">
     <h2>常规用法</h2>
     <div class="demo-actions">

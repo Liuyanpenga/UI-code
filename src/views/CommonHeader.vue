@@ -1,4 +1,5 @@
 <template>
+  <div v-if="showModal" class="mask" @click="onClickOverLay"></div>
   <div class="header">
     <button v-if="$route.name !='home'"
       class="hide"
@@ -6,7 +7,7 @@
       @click="openAside"
     >
       <svg class="icon">
-        <use xlink:href="#icon-xing"></use>
+        <use xlink:href="#icon-menu"></use>
       </svg>
     </button>
     <div class="logo">
@@ -20,23 +21,38 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, inject, Ref } from "vue";
+import { ref, inject, Ref } from "vue";
 import { useRoute } from "vue-router";
 
-export default defineComponent({
+export default({
   setup() {
   const route = useRoute()
     const asideVisible = inject<Ref<boolean>>("asideVisible");
     // console.log(asideVisible.value);
     const openAside = () => {
       asideVisible.value = !asideVisible.value;
+      showModal.value = !showModal.value
     };
-    return { openAside };
+    const showModal = ref(false)
+    const onClickOverLay = () => {
+        openAside();
+    };
+    return { openAside,showModal,onClickOverLay };
   },
 });
 </script>
 
 <style lang="scss" scoped>
+.mask {
+  background-color: rgb(0, 0, 0);
+  opacity: 0.3;
+  position: fixed;
+  top: 77.4px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 190
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -60,10 +76,9 @@ svg.icon {
   display: none;
   background: none;
   &>svg{
-    width: 32px;
-    height: 32px;
-    margin-left: 24px;
-    margin-bottom: 8px;
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
   }
 }
 .logo>.router-link-active>svg{
