@@ -33,7 +33,7 @@ export default {
 </script>
 <style lang="scss">
 .aside{
-  z-index: 1000;
+  z-index: 9999;
   position: absolute;
   width: 200px;
   height: 100%;
