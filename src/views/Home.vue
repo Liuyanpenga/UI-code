@@ -5,7 +5,7 @@
     <h1>晴天 UI</h1>
     <h3>一个随心所欲的 UI 框架</h3>
     <p class="actions">
-      <button><a href="">Github</a></button>
+      <button><a href="https://github.com/Liuyanpenga/UI-code">Github</a></button>
       <button><router-link to="/doc/introduce">快速开始</router-link></button>
     </p>
   </div>
