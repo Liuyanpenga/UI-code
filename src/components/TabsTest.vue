@@ -10,7 +10,8 @@
       </Tabs>
     </div>
     <div class="demo-actions">
-      <Button @click="look">查看代码</Button>
+      <Button @click="look" v-if="!$store.state.visible1">查看代码</Button>
+      <Button @click="hide" v-else>隐藏代码</Button>
     </div>
     <div class="demo-code" v-if="$store.state.visible1">
       <pre><v-md-preview :text="block"></v-md-preview></pre>
@@ -34,14 +35,19 @@ export default({
   components:{Tab,Tabs,Button},
   setup(){
     const store = useStore()
+    console.log(store);
+    
     const selected = ref('导航1')
     const block = ref(tab)
-
     const look = () => {
       store.commit('updatedVisible1')
     };
 
-    return{selected,block,look}
+    const hide = () => {
+      store.commit('updatedVisible1',false)
+    };
+
+    return{selected,block,look,hide}
   },
 })
 </script>

@@ -67,12 +67,12 @@ export default {
     }
     @media (max-width:500px) {
       .el-main {
-      width: 100%;
-      position: fixed;
-      top: 77px;
-      left: 0;
-      bottom: 0;
-      overflow-y: scroll;
+        width: 100%;
+        position: fixed;
+        top: 77px;
+        left: 0;
+        bottom: 0;
+        overflow-y: scroll;
   }
     }
 </style>

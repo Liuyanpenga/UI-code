@@ -8,7 +8,8 @@
       <Switch1/>
     </div>
     <div class="demo-actions">
-      <Button @click="look">查看代码</Button>
+      <Button @click="look" v-if="!$store.state.codeVisible">查看代码</Button>
+      <Button @click="$store.state.codeVisible=false" v-else>隐藏代码</Button>
     </div>
     <div class="demo-code" v-if="$store.state.codeVisible">
       <pre><v-md-preview :text="block"></v-md-preview></pre>
@@ -20,7 +21,8 @@
       <Switch2/>
     </div>
     <div class="demo-actions">
-      <Button @click="look1">查看代码</Button>
+      <Button @click="look1" v-if="!$store.state.visible">查看代码</Button>
+      <Button @click="$store.state.visible=false" v-else>隐藏代码</Button>
     </div>
     <div class="demo-code" v-if="$store.state.visible">
       <pre><v-md-preview :text="blocks"></v-md-preview></pre>

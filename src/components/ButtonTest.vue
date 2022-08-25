@@ -9,7 +9,8 @@
       <Button>正常</Button>
     </div>
     <div class="demo-actions">
-      <Button @click="look1">查看代码</Button>
+      <Button @click="look1" v-if="!$store.state.codeVisible1">查看代码</Button>
+      <Button @click="$store.state.codeVisible1=false" v-else>隐藏代码</Button>
     </div>
     <div class="demo-code" v-if="$store.state.codeVisible1">
       <pre><v-md-preview :text="block1"></v-md-preview></pre>
@@ -24,7 +25,8 @@
       <Button size="big">大大大</Button>
     </div>
     <div class="demo-actions">
-      <Button @click="look2">查看代码</Button>
+      <Button @click="look2" v-if="!$store.state.codeVisible2">查看代码</Button>
+      <Button @click="$store.state.codeVisible2=false" v-else>隐藏代码</Button>
     </div>
     <div class="demo-code" v-if="$store.state.codeVisible2">
       <pre><v-md-preview :text="block2"></v-md-preview></pre>
@@ -40,7 +42,8 @@
       <Button level="danger">危险按钮</Button>
     </div>
     <div class="demo-actions">
-      <Button @click="look3">查看代码</Button>
+      <Button @click="look3" v-if="!$store.state.codeVisible3">查看代码</Button>
+      <Button @click="$store.state.codeVisible3=false" v-else>隐藏代码</Button>
     </div>
     <div class="demo-code" v-if="$store.state.codeVisible3">
       <pre><v-md-preview :text="block3"></v-md-preview></pre>
@@ -54,7 +57,8 @@
       <Button>加载完毕</Button>
     </div>
     <div class="demo-actions">
-      <Button @click="look4">查看代码</Button>
+      <Button @click="look4" v-if="!$store.state.codeVisible4">查看代码</Button>
+      <Button @click="$store.state.codeVisible4=false" v-else>隐藏代码</Button>
     </div>
     <div class="demo-code" v-if="$store.state.codeVisible4">
       <pre><v-md-preview :text="block4"></v-md-preview></pre>
@@ -67,7 +71,8 @@
       <Button>正常按钮</Button>
     </div>
     <div class="demo-actions">
-      <Button @click="look5">查看代码</Button>
+      <Button @click="look5" v-if="!$store.state.codeVisible5">查看代码</Button>
+      <Button @click="$store.state.codeVisible5=false" v-else>隐藏代码</Button>
     </div>
     <div class="demo-code" v-if="$store.state.codeVisible5">
       <pre><v-md-preview :text="block5"></v-md-preview></pre>

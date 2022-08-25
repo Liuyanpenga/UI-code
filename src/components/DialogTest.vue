@@ -1,4 +1,5 @@
 <template>
+<div>
     <h1>dialog 对话框</h1>
     <div class="demo">
       <h2>常规用法</h2>
@@ -20,7 +21,8 @@
         </Dialog>
       </div>
       <div class="demo-actions">
-        <Button @click="look">查看代码</Button>
+        <Button @click="look" v-if="!$store.state.visible4">查看代码</Button>
+        <Button @click="$store.state.visible4=false" v-else>隐藏代码</Button>
       </div>
       <div class="demo-code" v-if="$store.state.visible4">
         <pre><v-md-preview :text="block"></v-md-preview></pre>
@@ -32,11 +34,13 @@
           <Button @click="showDialog">打开对话框</Button>
         </div>
         <div class="demo-actions">
-          <Button @click="look1">查看代码</Button>
+          <Button @click="look1" v-if="!$store.state.visible5">查看代码</Button>
+          <Button @click="$store.state.visible5=false" v-else>隐藏代码</Button>
         </div>
         <div class="demo-code" v-if="$store.state.visible5">
           <pre><v-md-preview :text="blocks"></v-md-preview></pre>
         </div>
+    </div>
     </div>
     <div>
       <p>
